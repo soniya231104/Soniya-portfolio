@@ -4,47 +4,303 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Soniya Wakode — Portfolio</title>
-  <meta name="description" content="Portfolio of Soniya Wakode — Web & Software Developer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#090d1f; --accent:#8b5cf6; --text:#f3f4f6; --muted:#9ca3af; --card:#111827;
-      --radius:14px; font-family:'Poppins', sans-serif;
+    :root {
+      --primary: #ff0033;
+      --secondary: #ff4d6d;
+      --accent: #ff8099;
+      --dark: #0a0000;
+      --text: #fff0f0;
+      --card: #1f0000;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{background:radial-gradient(circle at top,#0f172a,#020617);color:var(--text);min-height:100vh;overflow-x:hidden;}
-    header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:2rem 6%;position:sticky;top:0;background:rgba(15,23,42,0.7);backdrop-filter:blur(10px);z-index:10;}
-    header h1{font-size:1.8rem;font-weight:700;color:var(--accent);animation:fadeInDown 1s ease;display:flex;align-items:center;gap:8px;}
-    .wave-hand{display:inline-block;animation:wave 2s infinite ease-in-out;transform-origin:70% 70%;}
-    @keyframes wave{
-      0%{transform:rotate(0deg);}10%{transform:rotate(14deg);}20%{transform:rotate(-8deg);}30%{transform:rotate(14deg);}40%{transform:rotate(-4deg);}50%{transform:rotate(10deg);}60%,100%{transform:rotate(0deg);}}
-    header nav a{margin:0 0.8rem;text-decoration:none;color:var(--muted);font-weight:500;transition:.3s}
-    header nav a:hover{color:var(--accent)}
-    .hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5rem 2rem;animation:fadeIn 2s ease;}
-    .hero h2{font-size:2.2rem;margin-bottom:1rem;}
-    .hero p{color:var(--muted);max-width:600px;}
-    .btn{margin-top:1.5rem;background:var(--accent);color:white;border:none;padding:0.7rem 1.5rem;border-radius:999px;font-weight:600;cursor:pointer;transition:.3s;}
-    .btn:hover{background:#a78bfa;transform:scale(1.05)}
-    .section{padding:4rem 6%;}
-    h2.section-title{text-align:center;font-size:2rem;margin-bottom:2rem;color:var(--accent);position:relative;}
-    h2.section-title::after{content:'';width:60px;height:3px;background:var(--accent);display:block;margin:0.5rem auto;border-radius:3px;}
-    .skills-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
-    .skill{padding:10px 14px;background:var(--card);border-radius:999px;font-size:0.9rem;color:var(--muted);transition:.3s;}
-    .skill:hover{background:var(--accent);color:white;transform:scale(1.1)}
-    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.5rem;}
-    .card{background:var(--card);padding:1.2rem;border-radius:var(--radius);transition:.4s;position:relative;overflow:hidden;}
-    .card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,0,0,0.3)}
-    .card h3{margin-bottom:0.5rem;color:var(--accent)}
-    .card p{font-size:0.9rem;color:var(--muted)}
-    .contact-form{max-width:480px;margin:0 auto;text-align:center;}
-    .contact-form input,.contact-form textarea{width:100%;padding:0.8rem;margin:0.5rem 0;border:none;border-radius:8px;background:#1e293b;color:white;}
-    .contact-form button{background:var(--accent);color:white;border:none;padding:0.8rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600;transition:.3s;}
-    .contact-form button:hover{background:#a78bfa;transform:scale(1.05)}
-    footer{text-align:center;padding:1rem;color:var(--muted);font-size:0.8rem;margin-top:3rem;}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
-    @keyframes fadeInDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top left, #330000, #0a0000);
+      color: var(--text);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Floating particles */
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.5;
+      animation: float 10s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); opacity: 0.3; }
+      50% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
+      100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 6%;
+      background: rgba(255, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-shadow: 0 0 15px var(--secondary);
+      animation: fadeInDown 1s ease;
+    }
+
+    .wave-hand {
+      display: inline-block;
+      animation: wave 2s infinite ease-in-out;
+      transform-origin: 70% 70%;
+    }
+
+    @keyframes wave {
+      0%, 60%, 100% { transform: rotate(0deg); }
+      10%, 30%, 50% { transform: rotate(15deg); }
+      20%, 40% { transform: rotate(-10deg); }
+    }
+
+    nav a {
+      color: var(--accent);
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: var(--primary);
+      bottom: -5px;
+      left: 0;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+      background: linear-gradient(145deg, rgba(255,0,50,0.1), rgba(0,0,0,0.5));
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+      animation: typewriter 3s steps(25) 1s 1 normal both, blinkCursor 500ms steps(25) infinite normal;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid var(--accent);
+      display: inline-block;
+    }
+
+    @keyframes typewriter {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blinkCursor {
+      from { border-right-color: var(--accent); }
+      to { border-right-color: transparent; }
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 1rem auto;
+      color: #ffd6d6;
+      font-size: 1.1rem;
+      animation: fadeIn 3s ease;
+    }
+
+    .btn {
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      border: none;
+      margin-top: 2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 15px var(--secondary);
+    }
+
+    .btn:hover {
+      transform: scale(1.1) rotate(-1deg);
+      box-shadow: 0 0 25px var(--accent);
+    }
+
+    .section {
+      padding: 5rem 8%;
+      text-align: center;
+      position: relative;
+    }
+
+    h2.section-title {
+      color: var(--primary);
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 10px var(--secondary);
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 2rem;
+    }
+
+    .skill {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.7rem 1.5rem;
+      border-radius: 999px;
+      color: var(--text);
+      border: 1px solid var(--accent);
+      transition: 0.4s;
+      box-shadow: 0 0 5px rgba(255, 0, 50, 0.3);
+    }
+
+    .skill:hover {
+      background: var(--secondary);
+      color: #fff;
+      transform: scale(1.15);
+      box-shadow: 0 0 15px var(--primary);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.8rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1.8rem;
+      border-radius: 16px;
+      transition: 0.4s;
+      box-shadow: 0 0 20px rgba(255, 46, 99, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,0,50,0.2), transparent 70%);
+      transform: rotate(30deg);
+      transition: 1s;
+      opacity: 0;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 0 30px rgba(255, 46, 99, 0.6);
+    }
+
+    .card h3 {
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      background: #3d0000;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .contact-form input:focus, .contact-form textarea:focus {
+      outline: 2px solid var(--primary);
+      background: #550000;
+    }
+
+    .contact-form button {
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      padding: 0.8rem 1.6rem;
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 15px var(--primary);
+    }
+
+    .contact-form button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      color: #ffb3b3;
+      margin: 2rem 0;
+      font-size: 0.9rem;
+      text-shadow: 0 0 10px var(--accent);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
+  <div class="particle" style="width:10px;height:10px;top:20%;left:10%;animation-delay:0s"></div>
+  <div class="particle" style="width:15px;height:15px;top:70%;left:80%;animation-delay:2s"></div>
+  <div class="particle" style="width:8px;height:8px;top:40%;left:50%;animation-delay:4s"></div>
+
   <header>
     <h1>Soniya Wakode <span class="wave-hand">👋</span></h1>
     <nav>
@@ -53,11 +309,13 @@
       <a href="#contact">Contact</a>
     </nav>
   </header>
+
   <section class="hero">
-    <h2>Hi, I'm <span style="color:var(--accent)">Soniya</span></h2>
-    <p>A passionate Computer Engineering student skilled in Python, C, HTML, CSS, and Java, aspiring to craft meaningful digital experiences through design and code.</p>
-    <button class="btn" onclick="scrollToSection('projects')">View My Work</button>
+    <h2>Hi, I'm <span style="color:var(--primary)">Soniya</span></h2>
+    <p>A creative and passionate developer who loves bringing ideas to life with design and interactivity.</p>
+    <button class="btn" onclick="scrollToSection('projects')">Explore My Work</button>
   </section>
+
   <section id="skills" class="section">
     <h2 class="section-title">Skills</h2>
     <div class="skills-grid">
@@ -68,44 +326,44 @@
       <div class="skill">JavaScript</div>
       <div class="skill">Java</div>
       <div class="skill">Git & GitHub</div>
-      <div class="skill">Responsive Design</div>
+      <div class="skill">Creative Design</div>
     </div>
   </section>
+
   <section id="projects" class="section">
     <h2 class="section-title">Projects</h2>
     <div class="projects">
       <div class="card">
         <h3>Real-Time Collaborative Whiteboard</h3>
-        <p>Built an interactive whiteboard application enabling multiple users to draw simultaneously in real-time using WebSockets and Python (Flask-SocketIO). Includes color selection, brush sizes, and clear-board functionality for team brainstorming sessions.</p>
-      </div>
-      <div class="card">
-        <h3>Expense Tracker (Python)</h3>
-        <p>A simple Python CLI project that helps manage expenses and visualize spending patterns.</p>
+        <p>An interactive drawing tool where multiple users can create and brainstorm together in real-time using WebSockets and Flask-SocketIO.</p>
       </div>
       <div class="card">
         <h3>Cloud-based Bus Travel System</h3>
-        <p>Designed a scalable cloud-based bus booking & tracking system using Python (Flask), REST APIs and cloud-hosted database. Features include real-time seat availability, booking flow, admin dashboard, and route tracking for users and drivers.</p>
+        <p>Designed a dynamic bus booking and tracking web app powered by Flask, REST APIs, and a cloud-hosted database.</p>
+      </div>
+      <div class="card">
+        <h3>Expense Tracker</h3>
+        <p>A cute Python app for tracking daily expenses with an easy CLI and exportable reports.</p>
       </div>
       <div class="card">
         <h3>Encryption Tool</h3>
-        <p>Created a browser-based text encryption/decryption app using JavaScript and basic cryptography concepts.</p>
+        <p>Secures user text with stylish encryption visuals using JavaScript and CSS animations.</p>
       </div>
     </div>
-  
-<section id="availability" class="section">
-  <h2 class="section-title">Availability & Work Style</h2>
-  <div style="max-width:800px;margin:0 auto;text-align:center;color:var(--muted);font-size:1rem;line-height:1.6;">
-    <p>I'm very flexible with time zone communications & locations.</p>
-    <p>I'm based in <strong>Navi Mumbai, India</strong>, and open to <strong>remote work, internships, and freelance opportunities worldwide</strong>.</p>
-    <p>I thrive in <strong>hybrid and distributed team environments</strong>.</p>
-  </div>
-</section>
+  </section>
 
-</section>
+  <section id="availability" class="section">
+    <h2 class="section-title">Availability & Work Preferences</h2>
+    <p style="max-width:700px;margin:0 auto;color:#ffd6d6;font-size:1.1rem;line-height:1.6;">
+      I’m very flexible with time zone communications & locations.<br><br>
+      I'm based in <strong>Navi Mumbai, India</strong>, and open to <strong>remote work, internships, and freelance opportunities</strong> worldwide. I thrive in hybrid and distributed team environments.
+    </p>
+  </section>
+
   <section id="contact" class="section">
-    <h2 class="section-title">Let's Talk!</h2>
-    <div class="contact-form">
-      <p>I'd love to hear from you! Fill out the form below or email me directly at <a href="mailto:soniya.231104@gmail.com" style="color:var(--accent)">soniya.231104@gmail.com</a></p>
+    <h2 class="section-title">Let's Connect 💌</h2>
+    <div class="contact-form" style="max-width:500px;margin:0 auto;">
+      <p>Have an idea or want to collaborate? Drop me a message below!</p>
       <form onsubmit="sendMail(event)">
         <input type="text" id="name" placeholder="Your Name" required>
         <input type="email" id="email" placeholder="Your Email" required>
@@ -114,11 +372,22 @@
       </form>
     </div>
   </section>
+
   <footer>
     © 2025 Soniya Wakode. Crafted with ❤️.
   </footer>
+
   <script>
-    function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}function sendMail(e){e.preventDefault();const name=document.getElementById('name').value;const email=document.getElementById('email').value;const msg=document.getElementById('message').value;alert(`Thank you ${name}! Your message has been sent.`);window.location.href=`mailto:soniya.231104@gmail.com?subject=Message from ${name}&body=${msg}%0AFrom: ${email}`;}
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function sendMail(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      alert(`Thank you, ${name}! Your message has been sent ❤️`);
+    }
   </script>
 </body>
 </html>
+
