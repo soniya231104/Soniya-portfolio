@@ -1,6 +1,6 @@
 # Soniya Wakode — Portfolio Website
 
-This is the personal portfolio website of me , a Computer Engineering student and aspiring web & software developer.
+I am Soniya Wakode, a Computer Engineering student and aspiring web & software developer. This is my personal portfolio website.
 
 ## 🌐 Overview
 This portfolio showcases my skills, projects, and contact information in a clean, modern layout built with **HTML, CSS, and JavaScript**.  
@@ -17,7 +17,7 @@ It highlights my technical expertise, personal projects, and availability for pr
 ## 🛠️ Technologies Used
 - **HTML5**
 - **CSS3**
-- **JavaScript (vanilla)**
+- **JavaScript**
 - Responsive design techniques
 
 ## ✨ Recent Updates
